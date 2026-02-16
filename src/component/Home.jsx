@@ -47,29 +47,14 @@
 //used to props
 
 
-import React, { useState }  from 'react'
-  
+import React from 'react'
+
 function Home(props) {
-   const [data , setData] = useState({
-
-     Name: props.name,
-     age: props.age
-   })
-  function abc(){
-    setData({
-      Name: "Sandeep",
-      age: "12"
-    });
-  }
-
-
-
+   console.log(props);
   return (
-    
-    <div>
-        <p>{data.Name}</p>
-        <p>{data.age}</p>
-        <button onClick={abc}>Btn</button>
+    <div >
+       <p>{props.Name}</p>
+        <p>{props.Age}</p>
     </div>
   )
 }

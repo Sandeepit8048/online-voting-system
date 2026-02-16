@@ -1,14 +1,26 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 
 function Todo() {
     const[store , setStore] = useState([]);
+    const [col] = useState(["red","orange","green","blue", "gray",'yellow'])
       
     function todo(){
         setStore((e)=>{
-            return [...e, `task $(e.length+1)`];
+             
+            // return [...e, <button >Add </button>];
+        const prevdata = col [e.length % col.length];
+         return[...e , prevdata]
+
          })
     }
+     
+  
+
+
+
+
+
     console.log(store)
   return (
     <div>
@@ -17,7 +29,10 @@ function Todo() {
         {
             store.map((item , id) =>{
                 return(
-                    <p key={id}>{item}</p>
+                    // <p key={id} className="text-red-800">{item}</p>
+                    <button key={id} style={{background:item}} >
+                       Add
+                    </button>
                 )
             })
         }
